@@ -1,0 +1,9 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm'
+    id 'kotlin-kapt'
+}
+dependencies {
+    implementation "com.google.dagger:hilt-core:2.41"
+    implementation project(path: ':core:remote')
+    kapt "com.google.dagger:hilt-compiler:2.41"
+}

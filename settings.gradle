@@ -1,0 +1,6 @@
+rootProject.name = "NaviProject"
+include ':app'
+include ':app:data'
+include ':app:domain'
+include ':core'
+include ':core:remote'
