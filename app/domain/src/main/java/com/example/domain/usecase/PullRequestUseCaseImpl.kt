@@ -7,6 +7,9 @@ import javax.inject.Inject
 internal class PullRequestUseCaseImpl @Inject constructor(private val pullRequestRepository: PullRequestRepository) :
     PullRequestUseCase {
     override suspend fun execute(): Result<List<PullRequestEntity>> {
-        return pullRequestRepository.getAllClosedPullRequest()
+       
+        
+        return 
+        pullRequestRepository.getAllClosedPullRequest()
     }
 }

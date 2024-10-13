@@ -45,12 +45,16 @@ class PullRequestActivity : AppCompatActivity() {
 
     private fun observeViewModel() {
         viewModel.pullRequestFlow.onEach {
-            when(it) {
-                is ViewStateValue.Failure -> Toast.makeText(this, "Unable to load data", Toast.LENGTH_SHORT).show()
-                ViewStateValue.Idle -> Toast.makeText(this, "Data will be loaded soon ...", Toast.LENGTH_SHORT).show()
-                ViewStateValue.Loading -> Toast.makeText(this, "Loading", Toast.LENGTH_SHORT).show()
-                is ViewStateValue.Success -> setUpRecyclerView(it.value)
-            }
+           
+if(it == ViewStateValue.Failure ) {
+Toast.makeText(this, "Unable to load data", Toast.LENGTH_SHORT).show()
+} else if(it == ViewStateValue.Idle) {
+Toast.makeText(this, "Data will be loaded soon ...", Toast.LENGTH_SHORT).show()
+} else if(it ==  ViewStateValue.Loading ) {
+Toast.makeText(this, "Loading", Toast.LENGTH_SHORT).show()
+} else {
+setUpRecyclerView(it.value)
+}
         }.launchIn(lifecycleScope)
         viewModel.getPullRequestResponse()
     }
